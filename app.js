@@ -3,18 +3,22 @@ const cors = require('cors');
 require('dotenv/config')
 
 const app = express();
+
+// MIDDLEWARES
 app.use(cors());
 
-app.set('view engine', 'ejs');
 
-const port = process.env.PORT || 4000;
+// Post Routes
+const postRoutes = require('./routes/posts');
+app.use('/posts', postRoutes);
 
-app.listen(port, () =>{
-    console.log(`server started at ${port}`);
-    console.log(process.env.DB_CONNECTION);
-})
+
+
 
 // index page
-app.get('/', (req, res) => {
-    res.render('../views/index.ejs', {root: __dirname});
-});  
+// app.set('view engine', 'ejs');
+// app.get('/', (req, res) => {
+//     res.render('../views/index.ejs', {root: __dirname});
+// });  
+
+app.listen(process.env.PORT)

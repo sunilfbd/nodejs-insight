@@ -7,7 +7,6 @@ const app = express();
 // MIDDLEWARES
 app.use(cors());
 
-
 // Post Routes
 const postRoutes = require('./routes/posts');
 app.use('/posts', postRoutes);

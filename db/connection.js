@@ -1,9 +1,17 @@
-const mongoose = require('mongoose');
+require('dotenv').config();
+const { MongoClient } = require('mongodb');
+const client = new MongoClient(process.env.MONGO_URI);
 
-// CONNECTIING WITH DATABASE - using Mongoose
-mongoose.connect(process.env.DB_CONNECTION)
-.then(() =>{
-    console.log('================ Connection Successfull =================');
-}).catch((err) => {
-    console.log('---------------- error during DB Connection ----------------', err);
-})
+async function connectDB() {
+  try {
+    await client.connect();
+    console.log('✅ MongoDB Connected Successfully');
+    return client.db(process.env.DB_NAME);
+
+  } catch (err) {
+    console.error('❌ MongoDB Connection Failed:', err);
+    process.exit(1);
+  }
+}
+
+module.exports = connectDB;

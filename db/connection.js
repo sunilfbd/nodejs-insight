@@ -1,5 +1,5 @@
-require('dotenv').config();
-const { MongoClient } = require('mongodb');
+import 'dotenv/config';
+import { MongoClient } from 'mongodb';
 const client = new MongoClient(process.env.MONGO_URI);
 
 async function connectDB() {
@@ -14,4 +14,4 @@ async function connectDB() {
   }
 }
 
-module.exports = connectDB;
+export default connectDB;

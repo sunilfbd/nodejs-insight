@@ -7,17 +7,17 @@ router.get('/', (req, res) => {
 });
 
 // Create Post
-router.put('/createpost', (req, res) => {
+router.put('/addSchool', (req, res) => {
     res.send('Inside Create Post');
 });
 
 // Delete Post
-router.delete('/deletepost', (req, res) => {
+router.delete('/deleteSchool', (req, res) => {
     res.send('Inside Delete Post');
 });
 
 // update Post
-router.patch('/updatepost', (req, res) => {
+router.patch('/updateSchool', (req, res) => {
     res.send('inside updates Post');
 });
 
